@@ -3,6 +3,7 @@ services:
     name: videh-backend
     env: node
     plan: free
+    rootDir: backend
     buildCommand: npm install
     startCommand: npm start
     envVars:
@@ -11,6 +12,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: FAST2SMS_API_KEY
-        fromDatabase:
-          name: videh
-          property: FAST2SMS_API_KEY
+        value: BfJKY5R0A6c2H7WiUQT3Lasm4V8NMIuzjyEqxgwGZnoCPtDdObyXb7puYJ09hW3FkBUmIrDM8wClfaNL
+      - key: FAST2SMS_SENDER_ID
+        value: VIDEHE
+      - key: DLT_TEMPLATE_ID
+        value: "1007181628875366114"
