@@ -7,6 +7,7 @@ import {
   Alert,
   ActivityIndicator,
   ScrollView,
+  Image,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAuth } from '../context/AuthContext';
@@ -40,7 +41,11 @@ const SplashScreen = ({ navigation }) => {
       <LinearGradient colors={['#667eea', '#764ba2']} style={styles.container}>
         <View style={styles.content}>
           <View style={styles.logoContainer}>
-            <Text style={styles.triangleLogo}>▽</Text>
+            <Image
+              source={require('../../src/assets/logo.jpeg')}
+              style={styles.logoImage}
+              resizeMode="contain"
+            />
           </View>
           <Text style={styles.appName}>VIDEH</Text>
           <Text style={styles.tagline}>Premium Apparel Collection</Text>
@@ -211,18 +216,20 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logoContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
+    width: 140,
+    height: 140,
+    borderRadius: 70,
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
+    borderWidth: 3,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
   },
-  triangleLogo: {
-    fontSize: 80,
-    color: '#fff',
-    fontWeight: 'bold',
+  logoImage: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
   },
 });
 

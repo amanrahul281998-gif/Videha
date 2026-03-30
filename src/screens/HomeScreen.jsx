@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  ImageBackground,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -199,8 +200,17 @@ const HomeScreen = ({ navigation }) => {
         style={styles.header}
       >
         <View style={styles.headerContent}>
-          <Text style={styles.headerTitle}>VIDEH</Text>
-          <Text style={styles.headerSubtitle}>Premium Apparel</Text>
+          <View style={styles.headerLogoSection}>
+            <Image
+              source={require('../../src/assets/logo.jpeg')}
+              style={styles.headerLogo}
+              resizeMode="contain"
+            />
+            <View>
+              <Text style={styles.headerTitle}>VIDEH</Text>
+              <Text style={styles.headerSubtitle}>Premium Apparel</Text>
+            </View>
+          </View>
         </View>
         <TouchableOpacity style={styles.cartIcon}>
           <MaterialIcons name="shopping-cart" size={28} color="#fff" />
@@ -290,6 +300,16 @@ const styles = StyleSheet.create({
   },
   headerContent: {
     flex: 1,
+  },
+  headerLogoSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  headerLogo: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
   headerTitle: {
     fontSize: 24,

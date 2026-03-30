@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  Image,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -62,9 +63,11 @@ const ProfileScreen = ({ navigation }) => {
       >
         <View style={styles.profileCard}>
           <View style={styles.avatarContainer}>
-            <Text style={styles.avatarText}>
-              {user?.phoneNumber?.charAt(0).toUpperCase() || 'U'}
-            </Text>
+            <Image
+              source={require('../../src/assets/logo.jpeg')}
+              style={styles.avatarImage}
+              resizeMode="contain"
+            />
           </View>
           <View style={styles.userInfo}>
             <Text style={styles.userName}>
@@ -198,19 +201,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatarContainer: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 3,
     borderColor: 'rgba(255, 255, 255, 0.5)',
+    overflow: 'hidden',
   },
-  avatarText: {
-    color: '#fff',
-    fontSize: 28,
-    fontWeight: 'bold',
+  avatarImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
   },
   userInfo: {
     marginLeft: 16,
