@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: videh-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: FAST2SMS_API_KEY
+        fromDatabase:
+          name: videh
+          property: FAST2SMS_API_KEY

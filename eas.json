@@ -1,0 +1,27 @@
+{
+  "cli": {
+    "version": ">= 0.52.0"
+  },
+  "build": {
+    "production": {
+      "release": true,
+      "distribution": "store"
+    },
+    "preview": {
+      "distribution": "internal"
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "ascAppId": "YOUR_ASC_APP_ID",
+        "appleId": "YOUR_APPLE_ID",
+        "password": "@env ASC_PASSWORD"
+      },
+      "android": {
+        "serviceAccount": "@file ../fastlane/android_keystore.json",
+        "track": "internal"
+      }
+    }
+  }
+}

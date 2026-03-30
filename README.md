@@ -1,8 +1,60 @@
-# Welcome to your Expo app 👋
+# VIDEH - Premium Apparel E-Commerce Mobile Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A production-ready, fully-featured e-commerce mobile application for iOS and Android with OTP-based authentication.
 
-## Get started
+## 📋 Project Overview
+
+**App Name:** Videh  
+**Version:** 1.0.0  
+**Platform:** iOS & Android (React Native with Expo)  
+**Status:** Production Ready
+
+## ✨ Key Features
+
+### 🔐 Authentication
+- **OTP-based Login/Register** - Secure mobile number verification
+- **OTP Generation & Display** - Real-time OTP display for testing
+- **Secure Storage** - Encrypted token storage using expo-secure-store
+- **Session Management** - Automatic session persistence
+
+### 🛍️ E-Commerce Features
+- **Product Catalog** - Browse apparel collection with filtering
+- **Product Details** - Comprehensive product information and specifications
+- **Shopping Cart** - Add/remove items with quantity management
+- **Cart Persistence** - Persistent cart across sessions
+- **Checkout** - Complete order flow with order summary
+
+### 👤 User Profile
+- **User Profile** - View account information
+- **Order History** - Track past orders
+- **Wishlist** - Save favorite items
+- **Addresses** - Manage delivery addresses
+- **Payment Methods** - Secure payment management
+
+### 🎨 UI/UX
+- **Modern Design** - Beautiful gradient interfaces
+- **Smooth Animations** - Fluid navigation transitions
+- **Responsive Layouts** - Optimized for all device sizes
+- **Tab Navigation** - Easy access to Shop, Cart, and Profile
+
+## 📁 Project Structure
+
+```
+VidhApp/
+├── src/
+│   ├── screens/              # Screen components
+│   ├── components/           # Reusable components
+│   ├── context/             # Context API (Auth & Cart)
+│   ├── navigation/          # Navigation setup
+│   ├── services/            # API services
+│   ├── config/              # App configuration
+│   └── assets/              # Images & logos
+├── App.js                   # Root component
+├── app.json                 # Expo configuration
+└── package.json             # Dependencies
+```
+
+## 🚀 Getting Started
 
 1. Install dependencies
 

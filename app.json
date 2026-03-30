@@ -1,48 +1,59 @@
 {
   "expo": {
-    "name": "VidhApp",
-    "slug": "VidhApp",
+    "entryPoint": "App.js",
+    "name": "Videh",
+    "slug": "videh-apparel",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "vidhapp",
-    "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "icon": "./src/assets/logo.jpeg",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/logo.jpeg",
+      "resizeMode": "contain",
+      "backgroundColor": "#667eea"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.videh.apparel",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library",
+        "NSCameraUsageDescription": "This app needs access to your camera"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./src/assets/logo.jpeg",
+        "backgroundColor": "#667eea"
       },
-      "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "package": "com.videh.apparel",
+      "versionCode": 1,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./src/assets/logo.jpeg"
     },
     "plugins": [
-      "expo-router",
       [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
-          "dark": {
-            "backgroundColor": "#000000"
-          }
-        }
+        "expo-secure-store"
       ]
     ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
+    "extra": {
+      "eas": {
+        "projectId": "videh-apparel-ecommerce"
+      },
+      "supabaseUrl": "https://vdqhezlgayacyqrnnoxw.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkcWhlemxnYXlhY3lxcm5ub3h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTczNTQsImV4cCI6MjA5MDM5MzM1NH0.itduLJWdF3kBooUPPt4akNTo6vd8cPTofyFubP8Y80Q",
+      "FAST2SMS_API_KEY": "BfJKY5R0A6c2H7WiUQT3Lasm4V8NMIuzjyEqxgwGZnoCPtDdObyXb7puYJ09hW3FkBUmIrDM8wClfaNL",
+      "FAST2SMS_SENDER_ID": "VIDEHE",
+      "DLT_TEMPLATE_ID": "1007181628875366114"
     }
   }
 }
