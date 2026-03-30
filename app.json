@@ -47,7 +47,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "videh-apparel-ecommerce"
+        "projectId": "a1b2c3d4-e5f6-4789-9abc-0def12345678"
       },
       "supabaseUrl": "https://vdqhezlgayacyqrnnoxw.supabase.co",
       "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkcWhlemxnYXlhY3lxcm5ub3h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTczNTQsImV4cCI6MjA5MDM5MzM1NH0.itduLJWdF3kBooUPPt4akNTo6vd8cPTofyFubP8Y80Q",
