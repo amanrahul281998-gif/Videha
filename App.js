@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { View, Text } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider } from './src/context/AuthContext';
@@ -23,13 +24,16 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <GestureHandlerRootView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#667eea' }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
           <SafeAreaProvider>
-            <React.Fragment>
-              <div style={{ color: '#fff', fontSize: 18, textAlign: 'center' }}>
-                <p>App encountered an error. Please restart the app.</p>
-              </div>
-            </React.Fragment>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#667eea', paddingHorizontal: 20 }}>
+              <Text style={{ color: '#fff', fontSize: 18, textAlign: 'center', marginBottom: 10 }}>
+                App encountered an error
+              </Text>
+              <Text style={{ color: '#fff', fontSize: 14, textAlign: 'center', opacity: 0.8 }}>
+                Please restart the application
+              </Text>
+            </View>
           </SafeAreaProvider>
         </GestureHandlerRootView>
       );
