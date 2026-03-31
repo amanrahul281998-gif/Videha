@@ -101,10 +101,11 @@ const HomeScreen = ({ navigation }) => {
           }));
           setProducts(normalized);
         } else {
+          console.warn('No products from Supabase, using fallback data');
           setProducts(fallbackProducts);
         }
       } catch (error) {
-        console.warn('Supabase products fetch failed, using fallback data:', error);
+        console.warn('Error loading products, using fallback:', error?.message);
         setProducts(fallbackProducts);
       } finally {
         setIsLoading(false);

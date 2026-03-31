@@ -100,11 +100,19 @@ export const AuthProvider = ({ children }) => {
       setOtpSent(false);
       setOtp('');
 
-      await productStore.createOrUpdateUserProfile({
-        id: userData.id,
-        phone_number: userData.phoneNumber,
-        email: userData.email,
-      });
+      // Attempt to create/update user profile (non-critical - continue even if fails)
+      try {
+        const profileResult = await productStore.createOrUpdateUserProfile({
+          id: userData.id,
+          phone_number: userData.phoneNumber,
+          email: userData.email,
+        });
+        if (!profileResult.success) {
+          console.warn('Profile creation warning:', profileResult.error);
+        }
+      } catch (profileError) {
+        console.warn('Profile creation failed (non-critical):', profileError);
+      }
 
       await storage.removeItem(`phone_${sessionIdToVerify}`);
 

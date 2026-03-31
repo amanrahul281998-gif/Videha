@@ -37,37 +37,82 @@ export const supabaseAuth = {
 
 export const productStore = {
   async getProducts() {
-    const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
-    if (error) {
-      console.error('Supabase getProducts error:', error);
-      throw error;
+    try {
+      const { data, error } = await supabase.from('products').select('*').order('created_at', { ascending: false });
+      if (error) {
+        console.error('Supabase getProducts error:', error.message);
+        return null; // Return null to trigger fallback in HomeScreen
+      }
+      if (!data || !Array.isArray(data)) {
+        console.warn('Invalid products data from Supabase');
+        return null;
+      }
+      return data;
+    } catch (error) {
+      console.error('Supabase getProducts exception:', error);
+      return null; // Fallback to demo data
     }
-    return data;
   },
 
   async getProductById(id) {
-    const { data, error } = await supabase.from('products').select('*').eq('id', id).single();
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase.from('products').select('*').eq('id', id).single();
+      if (error) {
+        console.warn('getProductById error:', error.message);
+        return null;
+      }
+      return data;
+    } catch (error) {
+      console.error('getProductById exception:', error);
+      return null;
+    }
   },
 
   async createOrder(order) {
-    const { data, error } = await supabase.from('orders').insert([order]);
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase.from('orders').insert([order]);
+      if (error) {
+        console.warn('createOrder error:', error.message);
+        return { success: false, error: error.message };
+      }
+      return { success: true, data };
+    } catch (error) {
+      console.error('createOrder exception:', error);
+      return { success: false, error: error.message };
+    }
   },
 
   async getOrders(userId) {
-    const { data, error } = await supabase.from('orders').select('*').eq('user_id', userId).order('created_at', { ascending: false });
-    if (error) throw error;
-    return data;
+    try {
+      const { data, error } = await supabase.from('orders').select('*').eq('user_id', userId).order('created_at', { ascending: false });
+      if (error) {
+        console.warn('getOrders error:', error.message);
+        return [];
+      }
+      return Array.isArray(data) ? data : [];
+    } catch (error) {
+      console.error('getOrders exception:', error);
+      return [];
+    }
   },
 
   async createOrUpdateUserProfile(userProfile) {
-    const { data, error } = await supabase
-      .from('profiles')
-      .upsert(userProfile, { onConflict: 'id' });
-    if (error) throw error;
-    return data;
+    try {
+      if (!userProfile) {
+        console.warn('No user profile to save');
+        return { success: false };
+      }
+      const { data, error } = await supabase
+        .from('profiles')
+        .upsert(userProfile, { onConflict: 'id' });
+      if (error) {
+        console.warn('Profile upsert error:', error.message);
+        return { success: false, error: error.message };
+      }
+      return { success: true, data };
+    } catch (error) {
+      console.error('Profile upsert exception:', error);
+      return { success: false, error: error.message };
+    }
   },
 };

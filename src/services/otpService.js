@@ -43,36 +43,56 @@ export const otpService = {
           phone: phone,
           otp: otp,
         }),
+        timeout: 15000,
       });
+
+      if (!response.ok) {
+        console.warn(`Backend responded with status ${response.status}`);
+        throw new Error(`HTTP ${response.status}`);
+      }
 
       const data = await response.json();
 
-      if (data.success) {
+      if (data && data.success) {
+        console.log('OTP sent successfully via backend');
         return {
           success: true,
           message: 'OTP sent successfully',
           data: data,
         };
       } else {
-        throw new Error(data.message || 'Failed to send OTP');
+        console.warn('Backend returned non-success response:', data);
+        throw new Error(data?.message || 'Backend failed to send OTP');
       }
     } catch (error) {
-      console.error('OTP Send Error:', error);
+      console.error('OTP Send Error Details:', {
+        message: error?.message,
+        code: error?.code,
+        type: error?.type,
+      });
+      
       // Fallback: return a demo response so user can test with demo OTP
       console.warn('SMS sending failed, using demo OTP mode for testing');
       return {
         success: true,
-        message: 'Demo OTP (SMS service unavailable)',
+        message: 'Demo Mode - SMS service unavailable. Use OTP shown in alerts for testing.',
         data: { note: 'Using demo mode for testing' },
       };
     }
   },
 
   async verifyOTP(enteredOtp, storedOtp) {
-    if (enteredOtp === storedOtp) {
-      return { success: true };
-    } else {
-      throw new Error('Invalid OTP');
+    try {
+      if (!enteredOtp || !storedOtp) {
+        throw new Error('OTP values missing');
+      }
+      if (enteredOtp === storedOtp) {
+        return { success: true };
+      } else {
+        throw new Error('Invalid OTP');
+      }
+    } catch (error) {
+      console.error('OTP verification error:', error);
+      throw error;
     }
   },
-};
