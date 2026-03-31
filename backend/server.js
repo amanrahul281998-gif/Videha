@@ -11,6 +11,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Videh Backend API is running',
+    status: 'active',
+    version: '1.0.0'
+  });
+});
+
 // Constants
 const FAST2SMS_API_KEY = 'BfJKY5R0A6c2H7WiUQT3Lasm4V8NMIuzjyEqxgwGZnoCPtDdObyXb7puYJ09hW3FkBUmIrDM8wClfaNL';
 const SENDER_ID = 'VIDEHE';
