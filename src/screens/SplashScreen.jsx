@@ -29,6 +29,7 @@ const SplashScreen = ({ navigation }) => {
         }, 2000);
       } catch (error) {
         console.error('Auth check error:', error);
+        // Continue to login screen even if error occurs
         setTimeout(() => setLoading(false), 2000);
       }
     };

@@ -33,7 +33,9 @@ export const otpService = {
       const message = `Your VIDEH verification code is: ${otp}. Valid for 10 minutes. Do not share this code.`;
 
       // Determine backend URL based on environment
-      const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+      const backendUrl = Constants.expoConfig?.extra?.REACT_APP_BACKEND_URL || 
+                         process.env.REACT_APP_BACKEND_URL || 
+                         'https://videha.onrender.com';
 
       // Call backend API instead of Fast2SMS directly (to avoid CORS issues)
       const response = await fetch(`${backendUrl}/api/send-otp`, {

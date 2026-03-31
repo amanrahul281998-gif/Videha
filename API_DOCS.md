@@ -2,7 +2,7 @@
 
 ## Base URL
 ```
-https://api.videh.com/v1
+https://videha.onrender.com/v1
 ```
 
 ## Authentication

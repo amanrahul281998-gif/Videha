@@ -19,7 +19,7 @@ export const appConfig = {
   appName: 'Videh',
   version: '1.0.0',
   environment: 'production',
-  apiBaseUrl: 'https://api.videh.com', // Update with your API endpoint
+  apiBaseUrl: 'https://videha.onrender.com', // Update with your API endpoint
   supportEmail: 'support@videh.com',
 };
 
