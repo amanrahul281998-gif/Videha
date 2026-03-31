@@ -2,17 +2,14 @@ import Constants from 'expo-constants';
 
 const FAST2SMS_API_KEY = 
   Constants.expoConfig?.extra?.FAST2SMS_API_KEY ||
-  process.env.REACT_APP_FAST2SMS_API_KEY ||
   'BfJKY5R0A6c2H7WiUQT3Lasm4V8NMIuzjyEqxgwGZnoCPtDdObyXb7puYJ09hW3FkBUmIrDM8wClfaNL';
 
 const FAST2SMS_SENDER_ID = 
   Constants.expoConfig?.extra?.FAST2SMS_SENDER_ID ||
-  process.env.REACT_APP_FAST2SMS_SENDER_ID ||
   'VIDEHE';
 
 const DLT_TEMPLATE_ID = 
   Constants.expoConfig?.extra?.DLT_TEMPLATE_ID ||
-  process.env.REACT_APP_DLT_TEMPLATE_ID ||
   '1007181628875366114';
 
 export const otpService = {
