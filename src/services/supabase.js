@@ -1,7 +1,7 @@
 import Constants from 'expo-constants';
 import { createClient } from '@supabase/supabase-js';
 
-// Pull from Expo constants extra, fallback to hardcoded values
+// Pull from Expo constants extra - Direct access without REACT_APP_ prefix
 const supabaseUrl =
   Constants.expoConfig?.extra?.supabaseUrl ||
   'https://vdqhezlgayacyqrnnoxw.supabase.co';

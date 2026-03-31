@@ -46,9 +46,9 @@
       ]
     ],
     "extra": {
+      "API_URL": "https://videha.onrender.com",
       "supabaseUrl": "https://vdqhezlgayacyqrnnoxw.supabase.co",
       "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkcWhlemxnYXlhY3lxcm5ub3h3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ4MTczNTQsImV4cCI6MjA5MDM5MzM1NH0.itduLJWdF3kBooUPPt4akNTo6vd8cPTofyFubP8Y80Q",
-      "REACT_APP_BACKEND_URL": "https://videha.onrender.com",
       "FAST2SMS_API_KEY": "BfJKY5R0A6c2H7WiUQT3Lasm4V8NMIuzjyEqxgwGZnoCPtDdObyXb7puYJ09hW3FkBUmIrDM8wClfaNL",
       "FAST2SMS_SENDER_ID": "VIDEHE",
       "DLT_TEMPLATE_ID": "1007181628875366114",
